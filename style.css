@@ -1,0 +1,287 @@
+/* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /*Available for work*/
+    .flashing-circle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .flashing-dot {
+        animation: glow 1.5s infinite alternate;
+        filter: drop-shadow(0 0 4px #1ed214);
+      }
+
+      @keyframes glow {
+        0% {
+          opacity: 0.4;
+          filter: drop-shadow(0 0 2px #1ed214);
+        }
+
+        100% {
+          opacity: 1;
+          filter: drop-shadow(0 0 8px #1ed214);
+        }
+      }
+
+      .afw {
+        animation: none;
+        /* Text stays unaffected */
+        opacity: 1;
+      }
+
+      /*hero text*/
+      .glass h1,
+      .glass p {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        color: #f3f3f3;
+      }
+
+      .glass {
+        background: linear-gradient(280deg,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.15));
+        backdrop-filter: blur(5px);
+      }
+
+      /*Marquee Slide*/
+      .marquee {
+          overflow: hidden;
+          border-top: 1px solid var(--bg-light-green) !important;
+          /*border-bottom: 1px solid var(--bg-light-green)!important;*/
+          display: flex;
+        }
+
+        .star {
+          color: var(--bg-light-green) !important;
+        }
+
+        .marquee h1 {
+          font-size: 5em;
+          color: #ffffff;
+          white-space: nowrap;
+          text-transform: uppercase;
+          background-color: #1a1a1a;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+          /* Example box-shadow */
+        }
+
+        .marquee h1:hover {
+          background-color: #f3f3f3;
+          color: #1a1a1a;
+          transition: opacity 0.8s ease-out;
+          opacity: 1;
+          cursor: pointer;
+        }
+
+        /* Optional: Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+          .scrolling-content {
+            animation: none;
+            /* Disable animation */
+          }
+        }
+
+        /*style for pill-container*/
+        .tags-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          max-width: 90%;
+        }
+
+        /* Pill style */
+        .pill {
+          padding: 8px 16px;
+          border: 1px solid #1ed214;
+          border-radius: 25px;
+          background: white;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .pill:hover {
+          background: #000;
+          color: #fff;
+          border-color: #000;
+        }
+
+        /*Accordion*/
+        .accordion {
+          margin: 0;
+          padding: 0;
+          background: #1ed214;
+          color: #ffffff;
+          border: 1px solid #d7d9d8;
+        }
+
+        .accordion__item {
+          position: relative;
+          list-style-type: none;
+          padding: 2% 4%;
+        }
+
+        .accordion__item:not(:last-of-type) {
+          border-bottom: 1px solid #d9d9d9;
+        }
+
+        input[type="checkbox"] {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          opacity: 0;
+        }
+
+        .accordion__title {
+          padding: 1 rem;
+          font-size: 1.25rem;
+        }
+
+        .accordion__arrow {
+          position: absolute;
+          right: 0;
+          margin-top: 26px;
+          margin-right: 6%;
+        }
+
+        .accordion__arrow::before,
+        .accordion__arrow::after {
+          content: "";
+          position: absolute;
+          background-color: #f3f3f3;
+          width: 5px;
+          height: 9px;
+          transition: transform 0.25s ease-in-out;
+        }
+
+        .accordion__arrow::before {
+          transform: translateX(-2px) rotate(45deg);
+        }
+
+        .accordion__arrow::after {
+          transform: translateX(2px) rotate(-45deg);
+        }
+
+        input[type="checkbox"]:checked~.accordion__arrow::before {
+          transform: translateX(2px) rotate(45deg);
+        }
+
+        input[type="checkbox"]:checked~.accordion__arrow::after {
+          transform: translateX(-2px) rotate(-45deg);
+        }
+
+        .accordion__content {
+          position: relative;
+          max-height: 200px;
+          margin: 0;
+          opacity: 1;
+          overflow: hidden;
+          transition: all 0.35s ease-in-out;
+          line-height: 1.6;
+          z-index: 2;
+        }
+
+        input[type="checkbox"]:checked~.accordion__content {
+          max-height: 0;
+          opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+          .container {
+            width: 100%;
+          }
+        }
+
+        /*opacity text*/
+        .opacity-pro {
+      color: rgba(0, 0, 0, 0.1);
+        }
+
+        /*Back to Top Btn*/
+        #backToTopBtn {
+      display: none;
+      /* Initially hidden */
+      position: fixed;
+      /* Fixed on screen */
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      /* On top of other content */
+      border: none;
+      outline: none;
+      background-color: #1ed214;
+      /* Optional: dark button background */
+      color: #1a1a1a;
+      cursor: pointer;
+      padding: 6px 15px;
+      border-radius: 50%;
+      /* Makes it perfectly round */
+      font-size: 18px;
+      animation: glow 1.5s infinite alternate;
+      filter: drop-shadow(0 0 4px #1ed214);
+      transition: transform 0.4s ease-in-out;
+      /* Smooth hover effect */
+    }
+
+    #backToTopBtn:hover {
+      transform: scale(1.1);
+      /* Slight pop on hover */
+    }
+
+    @keyframes glow {
+      0% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 4px #1ed214);
+      }
+
+      100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 12px #1ed214);
+        /* Stronger glow for realism */
+      }
+    }
+
+
+    #backToTopBtn.show {
+      display: block;
+      /* Show the button when the class is added */
+    }
